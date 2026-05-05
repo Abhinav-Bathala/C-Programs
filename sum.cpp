@@ -2,6 +2,8 @@
 using namespace std; 
 
 
+// Add comment
+
 int main(){
     int a, b;
     cout << "Enter a number: "; 
