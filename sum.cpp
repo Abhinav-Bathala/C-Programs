@@ -1,8 +1,6 @@
 #include <iostream> 
 using namespace std; 
 
-// Test Comment
-
 int main(){
     int a, b;
     cout << "Enter a number: "; 
