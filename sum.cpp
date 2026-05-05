@@ -1,8 +1,7 @@
 #include <iostream> 
 using namespace std; 
 
-
-// Add comment
+// Test Comment
 
 int main(){
     int a, b;
@@ -10,9 +9,5 @@ int main(){
     cin >> a; 
     cout << "Enter a number: "; 
     cin >> b; 
-
-
     cout << a + b;
-
-
 }
