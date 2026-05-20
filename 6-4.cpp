@@ -22,7 +22,7 @@ int main(){
         vec_ptr -> push_back((1 / pow((i + 1), 2)));
         
     }
-
+    
     double sum = 0;
     for(size_t i = 0; i < size; ++i){
         sum += (*vec_ptr)[i];
