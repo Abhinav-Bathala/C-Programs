@@ -1,43 +1,36 @@
-#include <iostream>
 #include <vector>
+#include <algorithm>
 using namespace std;
-
-//Brute force, not the most optimal solution.
 
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
         int i = 0;
-        int j = 1;
+        int j = nums.size() - 1; 
+        bool status = false;
 
-        while (i < nums.size() - 1) {
-            while (j < nums.size()) {
-                if (nums[i] + nums[j] == target) {
-                    return {i, j};
-                }
-                ++j;
+        // Store original indices before sorting
+        vector<pair<int,int>> v;
+        for(int k = 0; k < nums.size(); k++)
+            v.push_back({nums[k], k});
+
+        // Sort by value
+        sort(v.begin(), v.end());
+
+        while(status == false){
+            int sum = v[i].first + v[j].first;
+
+            if(sum == target){
+                break;
             }
-            ++i;
-            j = i + 1;
+            else if(sum > target){
+                --j;   // move right pointer left
+            }
+            else{
+                ++i;   // move left pointer right
+            }
         }
 
-        return {};
+        return {v[i].second, v[j].second};
     }
 };
-
-int main() {
-    Solution sol;
-
-    vector<int> nums = {2, 7, 11, 15};
-    int target = 9;
-
-    vector<int> result = sol.twoSum(nums, target);
-
-    cout << "Indices: ";
-    for (int idx : result) {
-        cout << idx << " ";
-    }
-    cout << endl;
-
-    return 0;
-}
